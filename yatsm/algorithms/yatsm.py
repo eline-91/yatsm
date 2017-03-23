@@ -165,8 +165,10 @@ class YATSM(object):
             idx_mask = mask_band - 1
             valid *= np.in1d(Y.take(idx_mask, axis=0), mask_values,
                              invert=True).astype(np.bool)
-
-        Y = np.delete(Y, idx_mask, axis=0)[:, valid]
+            Y = np.delete(Y, idx_mask, axis=0)[:, valid]
+        else:
+            Y = Y[valid, :]
+        
         X = X[valid, :]
         dates = dates[valid]
 
