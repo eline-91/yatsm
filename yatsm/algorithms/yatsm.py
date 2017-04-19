@@ -167,7 +167,7 @@ class YATSM(object):
                              invert=True).astype(np.bool)
             Y = np.delete(Y, idx_mask, axis=0)[:, valid]
         else:
-            Y = Y[valid, :]
+            Y = Y[:, valid]
         
         X = X[valid, :]
         dates = dates[valid]
